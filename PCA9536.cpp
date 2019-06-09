@@ -120,6 +120,14 @@ void PCA9536::setState(state_t newState) {                                   // 
 }
 
 /*==============================================================================================================*
+    SET STATE : ALL PINS with pattern (OUTPUT PINS ONLY)
+ *==============================================================================================================*/
+
+void PCA9536::setState(state_t newState0, state_t newState1, state_t newState2, state_t newState3) {  // PARAMS: 
+    setPins(REG_OUTPUT, newState0, newState1, newState2, newState3);       //         IO_LOW / IO_HIGH for I0 to I3
+}
+
+/*==============================================================================================================*
     TOGGLE STATE (OUTPUT PINS ONLY)
  *==============================================================================================================*/
 
@@ -213,6 +221,19 @@ void PCA9536::setReg(reg_ptr_t regPtr, byte newSetting) {
 void PCA9536::setPin(pin_t pin, reg_ptr_t regPtr, byte newSetting) {
     byte newReg = getReg(regPtr);
     bitWrite(newReg, pin, newSetting);
+    setReg(regPtr, newReg);
+}
+
+/*==============================================================================================================*
+    SET PIN DATA for 
+ *==============================================================================================================*/
+
+void PCA9536::setPins(reg_ptr_t regPtr, byte newSetting0, byte newSetting1, byte newSetting2, byte newSetting3) {
+    byte newReg = getReg(regPtr);
+    bitWrite(newReg, I0, newSetting);
+    bitWrite(newReg, I1, newSetting);
+    bitWrite(newReg, I2, newSetting);
+    bitWrite(newReg, I3, newSetting);
     setReg(regPtr, newReg);
 }
 
