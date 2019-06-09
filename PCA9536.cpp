@@ -230,10 +230,10 @@ void PCA9536::setPin(pin_t pin, reg_ptr_t regPtr, byte newSetting) {
 
 void PCA9536::setPins(reg_ptr_t regPtr, byte newSetting0, byte newSetting1, byte newSetting2, byte newSetting3) {
     byte newReg = getReg(regPtr);
-    bitWrite(newReg, I0, newSetting);
-    bitWrite(newReg, I1, newSetting);
-    bitWrite(newReg, I2, newSetting);
-    bitWrite(newReg, I3, newSetting);
+    bitWrite(newReg, IO0, newSetting0);
+    bitWrite(newReg, IO1, newSetting1);
+    bitWrite(newReg, IO2, newSetting2);
+    bitWrite(newReg, IO3, newSetting3);
     setReg(regPtr, newReg);
 }
 
