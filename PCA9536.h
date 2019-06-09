@@ -40,7 +40,7 @@
     REG_CONFIG          0x03        // Configuration Register        (R/W)  B00000011
 
 *===============================================================================================================*
-    REGISTER 0: INPUT REGIASTER - READ ONLY (0 = LOW / 1 = HIGH)
+    REGISTER 0: INPUT REGISTER - READ ONLY (0 = LOW / 1 = HIGH)
 *===============================================================================================================*
 
     DEFAULT (WITH NO EXTENRAL INPUT SIGNAL CONNECTED): 'HIGH' (ALL IO PINS HAVE WEAK PULL-UP RESISTORS)
@@ -54,7 +54,7 @@
     BITS 4-7: NOT USED (DEFAULT: 1)
 
 *===============================================================================================================*
-    REGISTER 1: OUTPUT REGIASTER - READ / WRITE (0 = LOW / 1 = HIGH)
+    REGISTER 1: OUTPUT REGISTER - READ / WRITE (0 = LOW / 1 = HIGH)
 *===============================================================================================================*
 
                                     DEFAULT
@@ -66,7 +66,7 @@
     BITS 4-7: NOT USED (DEFAULT: 1) - MAY BE SET AS '0' OR '1'
 
 *===============================================================================================================*
-    REGISTER 2: POLARITY REGIASTER - READ / WRITE (0 = NON-INVERTED / 1 = INVERTED)
+    REGISTER 2: POLARITY REGISTER - READ / WRITE (0 = NON-INVERTED / 1 = INVERTED)
 *===============================================================================================================*
 
                                     DEFAULT
@@ -183,6 +183,7 @@ namespace Pca9536 {
             void setMode(mode_t newMode);
             void setState(pin_t pin, state_t newState);
             void setState(state_t newState);
+            void setState(state_t newState0, state_t newState1, state_t newState2, state_t newState3) 
             void toggleState(pin_t pin);
             void toggleState();
             void setPolarity(pin_t pin, polarity_t newPolarity);
@@ -195,6 +196,7 @@ namespace Pca9536 {
             byte getPin(pin_t pin, reg_ptr_t regPtr);
             void setReg(reg_ptr_t ptr, byte newSetting);
             void setPin(pin_t pin, reg_ptr_t regPtr, byte newSetting);
+            void setPins(reg_ptr_t regPtr, byte newSetting0, byte newSetting1, byte newSetting2, byte newSetting3)
             void initCall(reg_ptr_t regPtr);
             void endCall();
             friend PCA9536_PString PCA9536ComStr(const PCA9536&);
