@@ -170,7 +170,7 @@ Description:&nbsp;&nbsp;Sets the selected pin/s mode (INPUT / OUTPUT).
 Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;None
 
 __setState();__  
-Parameters:&nbsp;&nbsp;&nbsp;To set a single OUTPUT pin: IO0 / IO1 / IO2 / IO3, IO_LOW / IO_HIGH [default] | To set all OUTPUT pins at once: IO_LOW / IO_HIGH [default]
+Parameters:&nbsp;&nbsp;&nbsp;To set a single OUTPUT pin: IO0 / IO1 / IO2 / IO3, IO_LOW / IO_HIGH [default] | To set all OUTPUT pins at once: IO_LOW / IO_HIGH [default] | to set all OUTPUT pins at once with pattern IO_LOW / IO_HIGH [default] for IO0, IO1, IO2, IO3 
 Description:&nbsp;&nbsp;Sets the selected pin/s state (LOW / HIGH). Note that this is relevant only for OUTPUT pins.   
 Returns:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;None
 
